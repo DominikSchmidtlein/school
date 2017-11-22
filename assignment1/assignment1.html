@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+  <meta charset="utf-8">
+  <title>Assignment 1</title>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="assignment1.css" />
+</head>
+<body>
+  <header>
+    <h1>Share Your Travels</h1>
+    <p>let us know where you've been</p>
+  </header>
+  <main>
+    <section>
+      <h2>PHOTO DETAILS</h2>
+      <form method="post" action="http://www.randyconnolly.com/tests/process.php">
+        <table class="full-width">
+          <tr>
+            <td colspan="2" >
+              <label for="title">Title</label><br>
+              <input class="full-width" type="text" name="title" placeholder="Give your photo a descriptive name" id="title" /><br>
+              <label for="description">Description</label><br>
+              <textarea class="full-width" name="description" id="description" rows="5" placeholder="Adding a rich description will help with search results"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td id="location">
+              <label for="continent">Continent</label><br>
+              <select name="continent" id="continent">
+                <option value="" disabled selected>Choose continent</option>
+                <option>North America</option>
+                <option>Europe</option>
+                <option>South America</option>
+                <option>Africa</option>
+              </select><br>
+              <label for="country">Country</label><br>
+              <select name="country" id="country">
+                <option value="" disabled selected>Choose country</option>
+                <option>Canada</option>
+                <option>United States</option>
+                <option>Mexico</option>
+              </select><br>
+              <label for="city">City</label><br>
+              <input type="text" name="city" id="city" />
+            </td>
+            <td>
+              <div class="bordered">
+                <label for="copyright">Copyright?</label><br>
+                <input type="radio" id="copyright" name="copyright" value="1">All rights reserved<br>
+                <input type="radio" id="copyright2" name="copyright" value="2" checked>Creative Commons<br>
+              </div>
+              <div class="bordered">
+                <label for="cc">Creative Commons Types</label><br>
+                <input type="checkbox" id="cc" name="cc[]" value="1">Attribution<br>
+                <input type="checkbox" id="cc2" name="cc[]" value="2">Noncommercial<br>
+                <input type="checkbox" id="cc3" name="cc[]" value="3">No Derivative Works<br>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <p class="colored-block">I accept the software license <input type="checkbox" name="accept" value="on"></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="rate">Rate this photo:</label><br>
+              <input type="number" name="rate" id="rate"><br>
+              <label for="color">Color Collection:</label><br>
+              <input type="color" name="color" id="color"><br>
+            </td>
+            <td>
+              <div class="bordered">
+                <label for="date">Date Taken:</label><br>
+                <input type="date" name="date" id="date"><br>
+                <label for="time">Time Taken:</label><br>
+                <input type="time" name="time" id="time"><br>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="colored-block button-bar">
+                <button type="submit">Submit</button>
+                <button>Clear Form</button>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

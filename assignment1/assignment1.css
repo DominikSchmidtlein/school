@@ -1,0 +1,146 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+
+/* general text formatting */
+
+h1 {
+ font-family: Lobster, Cambria, "Times New Roman", serif;
+}
+body {
+   font-family: "Open Sans", Verdana, Arial, sans-serif;
+   font-size: 100%;
+   background-color: #E8EAF6;
+}
+
+
+/* header and navigation */
+
+header, footer {
+  color: white;
+  background-color: #1A237E;
+  margin: 0em 4em 0.25em 4em;
+}
+header h1 {
+  padding: 0.5rem 0 0 1.25rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+header p {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  padding: 0 0 0 1.25rem;
+}
+
+
+/* main article styling */
+main {
+   background-color: white;
+   margin: 1em 4em 1em 4em;
+   padding: 1em;
+}
+
+section {
+   margin-bottom: 1em;
+   padding: 0;
+   width: 100%;
+}
+
+h2 {
+  background-color: rgb(124, 134, 205);
+  color: #FFFFFF;
+  font-size: 1.2em;
+  padding-top: 0.3em;
+  padding-bottom: 0.1em;
+  font-weight: 300;
+}
+
+form {
+  padding: 0.5em;
+  background-color: rgb(198, 203, 233);
+}
+
+input[type="text"], input[type="number"], select {
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+}
+
+.colored-block {
+  background-color: rgb(158, 170, 222);
+  padding: 0.5em;
+}
+
+.button-bar {
+  margin-top: 0.5em;
+}
+
+.button-bar button {
+  background-color: rgb(235, 31, 100);
+  color: rgb(210, 210, 210);
+  border: 1px solid rgb(185, 65, 125);
+  border-radius: 7px;
+  box-shadow: 0 4px 2px grey;
+  padding: 1em;
+  font-size: 0.8em;	
+  font-weight: bold;
+  width: 8em;
+}
+
+.bordered {
+  border: 1px solid rgb(173, 178, 210);
+  padding: 0.5em;
+}
+
+.bordered:first-child {
+  margin-top: 0.5em;
+}
+
+.bordered:last-child {
+  margin-bottom: 0.5em;
+}
+
+.bordered+.bordered {
+  margin-top: 0.3em;
+}
+
+.full-width {
+  width: 100%;
+}
+
+#location select {
+  margin-bottom: 0.5em;
+}
+
+#location * {
+	width: 70%;
+}
+
+#title {
+  margin-bottom: 0.5em;
+}
+
+#rate {
+  width: 7ch;
+}
+
+legend {
+  font-size: 1.35rem;
+  background-color: #7986CB;
+  height: 1.70rem;
+  color: #E8EAF6;
+  text-transform: uppercase;
+    width: 100%;
+    margin: 0;
+    padding: 5px 0;
+}
+
+fieldset {
+   margin: 0;
+   padding: 0;
+   background-color: #C5CAE9;
+   width: 100%;
+   border: none;
+}
+form p {
+   margin-top: 0.5em;
+}
