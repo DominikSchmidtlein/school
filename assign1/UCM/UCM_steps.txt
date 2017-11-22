@@ -1,0 +1,31 @@
+c1 - form message
+c2 - create datagram
+c3 - print message
+c4 - send datagram
+
+h1 - receive datagram
+h2 - extract message
+h3 - print message as bytes and string
+h4 - create datagram with identical message
+h5 - print message
+h6 - send datagram
+
+s1 - receive datagram
+s2 - extract message
+s3 - verify message
+s4 - print message
+s5 - form response message
+s6 - create response datagram
+s7 - print datagram message
+s8 - send datagram
+
+h7 - receive datagram
+h8 - extract message
+h9 - print message
+h10 - create datagram with identical message
+h11 - print datagram message
+h12 - send datagram
+
+c5 - receive datagram
+c6 - extract message
+c7 - print message
