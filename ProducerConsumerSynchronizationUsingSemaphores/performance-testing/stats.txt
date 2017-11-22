@@ -1,0 +1,213 @@
+VARYING NUMBER OF BUFFERS
+
+10, 128, 0, Bytes: 792919b
+Time: 69921us
+
+10, 128, 0, Bytes: 792919b
+Time: 70078us
+
+10, 128, 0, Bytes: 792919b
+Time: 70193us
+
+20, 128, 0, Bytes: 792919b
+Time: 70192us
+
+20, 128, 0, Bytes: 792919b
+Time: 70186us
+
+20, 128, 0, Bytes: 792919b
+Time: 70139us
+
+40, 128, 0, Bytes: 792919b
+Time: 70043us
+
+40, 128, 0, Bytes: 792919b
+Time: -930057us
+
+40, 128, 0, Bytes: 792919b
+Time: 70183us
+
+100, 128, 0, Bytes: 792919b
+Time: 69900us
+
+100, 128, 0, Bytes: 792919b
+Time: 69854us
+
+100, 128, 0, Bytes: 792919b
+Time: 70420us
+
+150, 128, 0, Bytes: 792919b
+Time: 70136us
+
+150, 128, 0, Bytes: 792919b
+Time: 70085us
+
+150, 128, 0, Bytes: 792919b
+Time: 70033us
+
+VARYING BUFFER SIZE
+
+100, 128, 0, Bytes: 792919b
+Time: 70042us
+
+100, 128, 0, Bytes: 792919b
+Time: 70031us
+
+100, 128, 0, Bytes: 792919b
+Time: -930113us
+
+100, 256, 0, Bytes: 792919b
+Time: 69881us
+
+100, 256, 0, Bytes: 792919b
+Time: 69868us
+
+100, 256, 0, Bytes: 792919b
+Time: 69738us
+
+100, 512, 0, Bytes: 792919b
+Time: 69654us
+
+100, 512, 0, Bytes: 792919b
+Time: 69647us
+
+100, 512, 0, Bytes: 792919b
+Time: 69476us
+
+SEMAPHORE S ON***************************************
+VARYING NUMBER OF BUFFERS
+
+10, 128, 1, Bytes: 792919b
+Time: -929018us
+
+10, 128, 1, Bytes: 792919b
+Time: 70760us
+
+10, 128, 1, Bytes: 792919b
+Time: 72198us
+
+20, 128, 1, Bytes: 792919b
+Time: 70681us
+
+20, 128, 1, Bytes: 792919b
+Time: 70580us
+
+20, 128, 1, Bytes: 792919b
+Time: 70610us
+
+50, 128, 1, Bytes: 792919b
+Time: 71446us
+
+50, 128, 1, Bytes: 792919b
+Time: 71297us
+
+50, 128, 1, Bytes: 792919b
+Time: 70751us
+
+100, 128, 1, Bytes: 792919b
+Time: 71335us
+
+100, 128, 1, Bytes: 792919b
+Time: 70962us
+
+100, 128, 1, Bytes: 792919b
+Time: 70410us
+
+150, 128, 1, Bytes: 792919b
+Time: -929060us
+
+150, 128, 1, Bytes: 792919b
+Time: 70534us
+
+150, 128, 1, Bytes: 792919b
+Time: 71658us
+
+VARYING BUFFERSIZE
+
+100, 128, 1, Bytes: 792919b
+Time: 70527us
+
+100, 128, 1, Bytes: 792919b
+Time: 71036us
+
+100, 128, 1, Bytes: 792919b
+Time: 71396us
+
+100, 256, 1, Bytes: 792919b
+Time: -930365us
+
+100, 256, 1, Bytes: 792919b
+Time: 69967us
+
+100, 256, 1, Bytes: 792919b
+Time: 69659us
+
+100, 512, 1, Bytes: 792919b
+Time: 69617us
+
+100, 512, 1, Bytes: 792919b
+Time: 69838us
+
+100, 512, 1, Bytes: 792919b
+Time: 69598us
+
+VARYING FILESIZE ************************************************************************
+
+10k
+
+100, 128, 1, Bytes: 10492b
+Time: 2320us
+
+100, 128, 1, Bytes: 10492b
+Time: 2644us
+
+100, 128, 1, Bytes: 10492b
+Time: 2191us
+
+100k
+
+100, 128, 1, Bytes: 104902b
+Time: 12693us
+
+100, 128, 1, Bytes: 104902b
+Time: 12522us
+
+100, 128, 1, Bytes: 104902b
+Time: 12308us
+
+500k
+
+100, 128, 1, Bytes: 524502b
+Time: 48021us
+
+100, 128, 1, Bytes: 524502b
+Time: 48171us
+
+100, 128, 1, Bytes: 524502b
+Time: 47647us
+
+1M
+
+100, 128, 1, Bytes: 1049002b
+Time: 92468us
+
+100, 128, 1, Bytes: 1049002b
+Time: 92267us
+
+100, 128, 1, Bytes: 1049002b
+Time: 93081us
+
+2M
+
+100, 128, 1, Bytes: 2098002b
+Time: 181525us
+
+100, 128, 1, Bytes: 2098002b
+Time: 181443us
+
+100, 128, 1, Bytes: 2098002b
+Time: 181798us
+
+
+
+
