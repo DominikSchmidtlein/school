@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+
+/* header and navigation */
+
+header {
+  margin-bottom: 1em;
+  padding: 1em 2em 0.5em 2em;
+  color: white;
+  background-color: rgb(48, 62, 159);
+}
+header h1 {
+  font-family: Lobster, Cambria, "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline;
+}
+
+header img {
+  float: right;
+  margin-top: 0.8em;
+}
+
+body {
+  background-color: rgb(232, 234, 246);
+}
+
+figcaption {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 1em;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 2rem;
+  z-index: 1000;
+  position: absolute;
+  top: 605px;
+  width: 760px;
+  margin-left: 30px;
+}
+
+table img {
+  border: 1px solid rgb(180, 180, 180);
+  background-color: white;
+}
+.preview {
+  padding: 1% 1% 1% 1%;
+  width: 98%;
+}
+.thumbnail {
+  padding: 2%;
+  margin-right: 15px;
+}
+.thumbnail.last {
+  margin-right: 0;
+}
