@@ -3,8 +3,10 @@
 require_once('includes/art-config.inc.php');
 require_once('lib/ArtistDB.class.php');
 require_once('lib/ArtWorkDB.class.php');
+require_once('lib/GenreDB.class.php');
+require_once('lib/SubjectDB.class.php');
+require_once('lib/GalleryDB.class.php');
 require_once('lib/DatabaseHelper.class.php');
-
 
 if ( isset($_GET['id']) ) {
    $id = $_GET['id'];
@@ -15,9 +17,19 @@ else {
 
 $artworkData = new ArtWorkDB();
 $artWork = $artworkData->findById($id);
+$artistWorks = $artworkData->findByArtist($artWork["ArtistID"]);
 
 $artistData = new ArtistDB();
 $artist = $artistData->findById($artWork["ArtistID"]);
+
+$galleryData = new GalleryDB();
+$gallery = $galleryData->findById($artWork["GalleryID"]);
+
+$genreData = new GenreDB();
+$genres = $genreData->findByArtWorkId($id);
+
+$subjectData = new SubjectDB();
+$subjects = $subjectData->findByArtWorkId($id);
 
 $page = $_SERVER['PHP_SELF'];
 
@@ -49,13 +61,13 @@ $page = $_SERVER['PHP_SELF'];
          <p>By <a href="display-artist.php?id=<?php echo $artist["ArtistID"] ?>"><?php echo $artist["FirstName"] . ' ' .$artist["LastName"]; ?></a></p>
          <div class="row">
             <div class="col-md-5">
-               <img src="images/art/works/medium/<?php ?>.jpg" class="img-thumbnail img-responsive" alt="title here"/>
+               <img src="images/art/works/medium/<?php echo $artWork["ImageFileName"] ?>.jpg" class="img-thumbnail img-responsive" alt="<?php echo $artWork["Title"] ?>"/>
             </div>
             <div class="col-md-7">
                <p>
-                description herer
+                <?php echo $artWork["Description"] ?>
                </p>
-               <p class="price">$price</p>
+               <p class="price">$<?php echo number_format($artWork["MSRP"], 2) ?></p>
                <div class="btn-group btn-group-lg">
                  <button type="button" class="btn btn-default">
                      <a href="#"><span class="glyphicon glyphicon-gift"></span> Add to Wish List</a>  
@@ -70,31 +82,27 @@ $page = $_SERVER['PHP_SELF'];
                  <table class="table">
                    <tr>
                      <th>Date:</th>
-                     <td></td>
+                     <td><?php echo $artWork["YearOfWork"] ?></td>
                    </tr>
                    <tr>
                      <th>Medium:</th>
-                     <td></td>
+                     <td><?php echo $artWork["Medium"] ?></td>
                    </tr>  
                    <tr>
                      <th>Dimensions:</th>
-                     <td>? cm X ? cm</td>
+                     <td><?php echo $artWork["Width"] ?> cm X <?php echo $artWork["Height"] ?> cm</td>
                    </tr> 
                    <tr>
                      <th>Home:</th>
-                     <td><a href="#"></a></td>
+                     <td><a href="#"><?php echo $gallery["GalleryName"] . ", " . $gallery["GalleryCity"] ?></a></td>
                    </tr>  
                    <tr>
                      <th>Genres:</th>
-                     <td>
-
-                     </td>
+                     <td><?php echo join(", ", array_map(function($val) { return '<a href="#">' . $val["GenreName"] . '</a>'; }, $genres->fetchAll())) ?></td>
                    </tr> 
                    <tr>
                      <th>Subjects:</th>
-                     <td>
-                   
-                     </td>
+                     <td><?php echo join(", ", array_map(function($val) { return '<a href="#">' . $val["SubjectName"] . '</a>'; }, $subjects->fetchAll())) ?></td>
                    </tr>     
                  </table>
                </div>                              

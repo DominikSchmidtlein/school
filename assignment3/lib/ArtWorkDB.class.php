@@ -5,7 +5,7 @@
  */
 class ArtWorkDB 
 {  
-    private static $baseSQL = "SELECT ArtWorkID, ArtWorks.ArtistID AS ArtistID, FirstName, LastName, Nationality, YearOfBirth, YearOfDeath, Details, ArtistLink, ImageFileName, Title, Description, Excerpt, YearOfWork, Width, Height, Medium, OriginalHome, Cost, MSRP, ArtWorkLink, GoogleLink, FirstName,LastName,Nationality,YearOfBirth, YearOfDeath,Details,ArtistLink
+    private static $baseSQL = "SELECT ArtWorkID, ArtWorks.ArtistID AS ArtistID, FirstName, LastName, Nationality, YearOfBirth, YearOfDeath, Details, ArtistLink, ImageFileName, Title, Description, Excerpt, YearOfWork, Width, Height, Medium, OriginalHome, Cost, MSRP, ArtWorkLink, GoogleLink, FirstName,LastName,Nationality,YearOfBirth, YearOfDeath,Details,ArtistLink, GalleryID
 FROM Artists INNER JOIN ArtWorks ON Artists.ArtistID = ArtWorks.ArtistID ";
     
     public function findById($id)

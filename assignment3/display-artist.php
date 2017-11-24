@@ -15,6 +15,10 @@ else {
 
 $artistData = new ArtistDB();
 $artist = $artistData->findById($id);
+
+$artworkData = new ArtWorkDB();
+$artistWorks = $artworkData->findByArtist($id);
+
 $page = $_SERVER['PHP_SELF'];
 
 ?>
