@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once('includes/art-config.inc.php');
 require_once('lib/ArtistDB.class.php');
 require_once('lib/ArtWorkDB.class.php');
@@ -7,6 +9,10 @@ require_once('lib/GenreDB.class.php');
 require_once('lib/SubjectDB.class.php');
 require_once('lib/GalleryDB.class.php');
 require_once('lib/DatabaseHelper.class.php');
+
+if (!isset($_SESSION['cart'])) {
+	$_SESSION['cart'] = array();
+}
 
 if ( isset($_GET['id']) ) {
    $id = $_GET['id'];
@@ -46,6 +52,9 @@ $page = $_SERVER['PHP_SELF'];
     <link href="bootstrap3_defaultTheme/dist/css/bootstrap.css" rel="stylesheet"> 
     <!-- Custom styles for this template -->
     <link href="bootstrap3_defaultTheme/theme.css" rel="stylesheet">
+	
+	<link href="display-art-work.css" rel="stylesheet">
+	
 
   </head>
 
@@ -72,9 +81,7 @@ $page = $_SERVER['PHP_SELF'];
                  <button type="button" class="btn btn-default">
                      <a href="#"><span class="glyphicon glyphicon-gift"></span> Add to Wish List</a>  
                  </button>
-                 <button type="button" class="btn btn-default">
-                  <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Shopping Cart</a>
-                 </button>
+				 <a class="btn btn-info" href="display-cart.php?carted-artwork-id=<?php echo $id ?>"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Shopping Cart</a>
                </div>               
                <p>&nbsp;</p>
                <div class="panel panel-default">

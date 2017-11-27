@@ -1,8 +1,35 @@
 <?php
 
+session_start();
+
+require_once('includes/art-config.inc.php');
+require_once('lib/ArtWorkDB.class.php');
+require_once('lib/DatabaseHelper.class.php');
+
+if (!isset($_SESSION['cart'])) {
+	$_SESSION['cart'] = array();
+}
+
+if (isset($_GET['carted-artwork-id'])) {
+	$carted_artwork_id = $_GET['carted-artwork-id'];
+	if ($carted_artwork_id > 0) {
+		$quantity = 0;
+		foreach ($_SESSION['cart'] as $key=>$item) {
+			if ($item['ArtWorkID'] == $carted_artwork_id) {
+				$quantity = $item['Quantity'];
+				unset($_SESSION['cart'][$key]);
+				break;
+			}
+		}
+		array_push($_SESSION['cart'], array("ArtWorkID"=>$carted_artwork_id, "Quantity"=>$quantity + 1));
+	} else {
+		$_SESSION['cart'] = array();
+	}
+}
+
 function outputCartRow($file, $product, $quantity, $price) {
    echo '<tr>';
-   echo '<td><img class="img-thumbnail" src="images/art/tiny/' . $file . '" alt="..."></td>';
+   echo '<td><img class="img-thumbnail" src="images/art/works/tiny/' . $file . '.jpg " alt="..."></td>';
    echo '<td>' . $product . '</td>';
    echo '<td>' . $quantity . '</td>';
    echo '<td>$' . number_format($price,2) . '</td>';
@@ -27,6 +54,7 @@ $shippingFlatAmount = 100;
 	<link href="bootstrap3_defaultTheme/dist/css/bootstrap.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
 	<link href="bootstrap3_defaultTheme/theme.css" rel="stylesheet">
+	<link href="display-cart.css" rel="stylesheet">
 </head>
 
 <body>
@@ -49,21 +77,28 @@ $shippingFlatAmount = 100;
             <th>Amount</th>
          </tr>
          <?php
-            include('art-data.php');
-            outputCartRow($file1, $product1, $quantity1, $price1);
-            outputCartRow($file2, $product2, $quantity2, $price2);
+			$artworkData = new ArtWorkDB();
+			
+            $subtotal = 0;
+			foreach ($_SESSION['cart'] as $item) {
+				$artWork = $artworkData->findById($item["ArtWorkID"]);
+				$subtotal += $item["Quantity"] * $artWork["MSRP"];
+				outputCartRow($artWork["ImageFileName"], $artWork["Title"], $item["Quantity"], $artWork["MSRP"]);
+			}
+			
+            // outputCartRow($file1, $product1, $quantity1, $price1);
+            // outputCartRow($file2, $product2, $quantity2, $price2);
             
             // now calculate subtotal, tax, shipping, and grand total
-            $subtotal = ($quantity1 * $price1) + ($quantity2 * $price2);
+            // $subtotal = ($quantity1 * $price1) + ($quantity2 * $price2);
             $tax = $subtotal * $taxPercent;
             if ($subtotal > $shippingThreshold)
                $shipping = 0;
             else
-               $shipping = $shippingFlatAmount ;
+               $shipping = $shippingFlatAmount;
             $grandTotal = $subtotal + $tax + $shipping;
          
          ?>
- 
          <tr class="success strong">
             <td colspan="4" class="moveRight">Subtotal</td>
             <td>$<?php echo number_format($subtotal,2) ?></td>
@@ -75,14 +110,14 @@ $shippingFlatAmount = 100;
          <tr class="strong">
             <td colspan="4" class="moveRight">Shipping</td>
             <td>$<?php echo number_format($shipping,2) ?></td>
-         </tr> 
+         </tr>
          <tr class="warning strong text-danger">
             <td colspan="4" class="moveRight">Grand Total</td>
             <td>$<?php echo number_format($grandTotal,2) ?></td>
-         </tr>    
-         <tr >
+         </tr>   
+         <tr>
             <td colspan="4" class="moveRight"><button type="button" class="btn btn-primary" >Continue Shopping</button></td>
-            <td><button type="button" class="btn btn-success" >Checkout</button></td>
+            <td><a href="display-cart.php?carted-artwork-id=-1" class="btn btn-success" >Checkout</a></td>
          </tr>
       </table>         
          

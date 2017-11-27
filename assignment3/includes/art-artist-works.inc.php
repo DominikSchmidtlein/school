@@ -13,7 +13,7 @@
          <div class="caption">
             <a class="btn btn-primary btn-xs" href="display-art-work.php?id=<?php echo $work["ArtWorkID"] ?>"><span class="glyphicon glyphicon-info-sign"></span> View</a>
             <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-gift"></span> Wish</button>
-            <button type="button" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</button>
+            <a class="btn btn-info btn-xs" href="display-cart.php?carted-artwork-id=<?php echo $work["ArtWorkID"] ?>""><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
          </div>
       </div>                   
    </div>

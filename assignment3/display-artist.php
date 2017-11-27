@@ -1,10 +1,15 @@
 <?php
 
+session_start();
+
 require_once('includes/art-config.inc.php');
 require_once('lib/ArtistDB.class.php');
 require_once('lib/ArtWorkDB.class.php');
 require_once('lib/DatabaseHelper.class.php');
 
+if (!isset($_SESSION['cart'])) {
+	$_SESSION['cart'] = array();
+}
 
 if ( isset($_GET['id']) ) {
    $id = $_GET['id'];
