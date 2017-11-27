@@ -6,14 +6,18 @@ require_once('includes/art-config.inc.php');
 require_once('lib/ArtWorkDB.class.php');
 require_once('lib/DatabaseHelper.class.php');
 
+// ensure cart is initialized
 if (!isset($_SESSION['cart'])) {
 	$_SESSION['cart'] = array();
 }
 
+// if user wants to add item to cart
 if (isset($_GET['carted-artwork-id'])) {
+	// get id of artwork to be added to cart
 	$carted_artwork_id = $_GET['carted-artwork-id'];
 	if ($carted_artwork_id > 0) {
 		$quantity = 0;
+		// remove existing entry for art with given id
 		foreach ($_SESSION['cart'] as $key=>$item) {
 			if ($item['ArtWorkID'] == $carted_artwork_id) {
 				$quantity = $item['Quantity'];
@@ -21,8 +25,10 @@ if (isset($_GET['carted-artwork-id'])) {
 				break;
 			}
 		}
+		// create new entry in cart, with updated quantity
 		array_push($_SESSION['cart'], array("ArtWorkID"=>$carted_artwork_id, "Quantity"=>$quantity + 1));
 	} else {
+		// id set to -1 is used to clear cart
 		$_SESSION['cart'] = array();
 	}
 }
@@ -80,14 +86,12 @@ $shippingFlatAmount = 100;
 			$artworkData = new ArtWorkDB();
 			
             $subtotal = 0;
+			// calculate subtotal and display cart
 			foreach ($_SESSION['cart'] as $item) {
 				$artWork = $artworkData->findById($item["ArtWorkID"]);
 				$subtotal += $item["Quantity"] * $artWork["MSRP"];
 				outputCartRow($artWork["ImageFileName"], $artWork["Title"], $item["Quantity"], $artWork["MSRP"]);
 			}
-			
-            // outputCartRow($file1, $product1, $quantity1, $price1);
-            // outputCartRow($file2, $product2, $quantity2, $price2);
             
             // now calculate subtotal, tax, shipping, and grand total
             // $subtotal = ($quantity1 * $price1) + ($quantity2 * $price2);

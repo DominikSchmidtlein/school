@@ -7,6 +7,7 @@ require_once('lib/ArtistDB.class.php');
 require_once('lib/ArtWorkDB.class.php');
 require_once('lib/DatabaseHelper.class.php');
 
+// ensure cart is initialized
 if (!isset($_SESSION['cart'])) {
 	$_SESSION['cart'] = array();
 }
@@ -18,9 +19,11 @@ else {
    $id = 106;   
 }
 
+// get artist by given id
 $artistData = new ArtistDB();
 $artist = $artistData->findById($id);
 
+// get artworks created by given artist
 $artworkData = new ArtWorkDB();
 $artistWorks = $artworkData->findByArtist($id);
 

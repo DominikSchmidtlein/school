@@ -7,6 +7,7 @@ class SubjectDB
 {  
     private static $baseSQL = "SELECT * FROM subjects JOIN artworksubjects ON artworksubjects.SubjectID = subjects.SubjectID";
 
+	// get subjects info given artworkID
 	public function findByArtWorkId($artworkID)
 	{
 		$pdo = DatabaseHelper::setConnectionInfo(array(DBCONNECTION, DBUSER, DBPASS));

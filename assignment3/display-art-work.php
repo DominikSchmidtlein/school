@@ -10,6 +10,7 @@ require_once('lib/SubjectDB.class.php');
 require_once('lib/GalleryDB.class.php');
 require_once('lib/DatabaseHelper.class.php');
 
+// ensure cart is initialized
 if (!isset($_SESSION['cart'])) {
 	$_SESSION['cart'] = array();
 }
@@ -18,22 +19,29 @@ if ( isset($_GET['id']) ) {
    $id = $_GET['id'];
 }
 else {
+   // by default, artwork with id 106 is displayed
    $id = 106;   
 }
 
 $artworkData = new ArtWorkDB();
+// get the requested artwork by id
 $artWork = $artworkData->findById($id);
+// get all the artwork by the same artist as the requested artwork
 $artistWorks = $artworkData->findByArtist($artWork["ArtistID"]);
 
+// get details about artist who created requested art
 $artistData = new ArtistDB();
 $artist = $artistData->findById($artWork["ArtistID"]);
 
+// get details about which gallery artwork is in
 $galleryData = new GalleryDB();
 $gallery = $galleryData->findById($artWork["GalleryID"]);
 
+// get genres of artwork
 $genreData = new GenreDB();
 $genres = $genreData->findByArtWorkId($id);
 
+// get subjects of artwork
 $subjectData = new SubjectDB();
 $subjects = $subjectData->findByArtWorkId($id);
 
@@ -52,7 +60,7 @@ $page = $_SERVER['PHP_SELF'];
     <link href="bootstrap3_defaultTheme/dist/css/bootstrap.css" rel="stylesheet"> 
     <!-- Custom styles for this template -->
     <link href="bootstrap3_defaultTheme/theme.css" rel="stylesheet">
-	
+	<!-- Custom stylesheet for add to shopping cart button -->
 	<link href="display-art-work.css" rel="stylesheet">
 	
 

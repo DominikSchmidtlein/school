@@ -7,6 +7,7 @@ class GenreDB
 {  
     private static $baseSQL = "SELECT * FROM genres JOIN artworkgenres ON artworkgenres.GenreID = genres.GenreID";
 
+	// get genre info given artworkID
 	public function findByArtWorkId($artworkID)
 	{
 		$pdo = DatabaseHelper::setConnectionInfo(array(DBCONNECTION, DBUSER, DBPASS));
